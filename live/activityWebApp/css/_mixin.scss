@@ -1,0 +1,218 @@
+@charset "UTF-8";
+
+//动画规则
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}  
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@-o-keyframes #{$name} {
+		@content;
+	}  
+	@keyframes #{$name} {
+		@content;
+	}
+}
+//示例
+//	@include keyframes(example){
+//		50%{
+//			
+//		}
+//	}
+
+//动画
+@mixin animation($animate){
+	-webkit-animation: $animate;
+	-moz-animation: $animate;
+	-ms-animation: $animate;
+	-o-animation: $animate;
+	animation: $animate;
+}
+
+//圆角
+@mixin border-radius($radius){
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+//文字阴影
+@mixin text-shadow($shadow...){
+	-webkit-text-shadow: $shadow;
+	-moz-text-shadow: $shadow;
+	-ms-text-shadow: $shadow;
+	-o-text-shadow: $shadow;
+	text-shadow: $shadow;
+}
+
+//阴影
+@mixin box-shadow($shadow...){
+	-webkit-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	-ms-box-shadow: $shadow;
+	-o-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+
+//过渡
+@mixin transition($transition){
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
+}
+
+//变形
+@mixin transform($transform...){
+	-webkit-transform: $transform;
+	-moz-transform: $transform;
+	-ms-transform: $transform;
+	-o-transform: $transform;
+	transform: $transform;
+}
+
+//缩放
+@mixin scale($scale...){
+	-webkit-transform: scale($scale);
+	-moz-transform: scale($scale);
+	-ms-transform: scale($scale);
+	-o-transform: scale($scale);
+	transform: scale($scale);
+}
+
+//扭曲
+@mixin skew($skewx, $skewy){
+	-webkit-transform: skew($skewx, $skewy);
+	-moz-transform: skew($skewx, $skewy);
+	-ms-transform: skew($skewx, $skewy);
+	-o-transform: skew($skewx, $skewy);
+	transform: skew($skewx, $skewy);
+}
+
+//旋转
+@mixin rotate($rotate){
+	-webkit-transform: rotate($rotate);
+	-moz-transform: rotate($rotate);
+	-ms-transform: rotate($rotate);
+	-o-transform: rotate($rotate);
+	transform: rotate($rotate);
+}
+
+//偏移
+@mixin translate($translate...){
+	-webkit-transform: translate($translate);
+	-moz-transform: translate($translate);
+	-ms-transform: translate($translate);
+	-o-transform: translate($translate);
+	transform: translate($translate);
+}
+
+//变形中心点
+@mixin transform-origin($origin...){
+	-webkit-transform-origin: $origin;
+	-moz-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+//滤镜透明度
+@mixin opacity($opacity){
+	opacity: $opacity;
+	filter: alpha(opacity=$opacity * 100);
+}
+
+//字体最小化
+@mixin font0(){
+	font-size: 0; font-size: 1px\9; font-size: 1px\0;
+}
+
+//运算
+@function pi() {
+  @return 3.141592653589793;
+}
+
+//媒体查询
+@mixin scr($w,$f){
+	@media screen and (max-width: #{$w}px) {
+		html{ font-size: #{$w / $f}px; }
+	}
+}
+
+@mixin scr1($value){
+	$times: $value / 100;
+	@include scr(1440, $times);
+	@include scr(1366, $times);
+	@include scr(1280, $times);
+	@include scr(1200, $times);
+	@include scr(1120, $times);
+	@include scr(1080, $times);
+	@include scr(960, $times);
+	@include scr(880, $times);
+	@include scr(840, $times);
+	@include scr(800, $times);
+	@include scr(750, $times);
+	@include scr(720, $times);
+	@include scr(640, $times);
+	@include scr(600, $times);
+	@include scr(560, $times);
+	@include scr(500, $times);
+	@include scr(480, $times);
+	@include scr(414, $times);
+	@include scr(400, $times);
+	@include scr(384, $times);
+	@include scr(375, $times);
+	@include scr(360, $times);
+	@include scr(320, $times);
+}
+
+.clearfix {
+	display: inline-block;
+	&:afert{
+		display:block;
+		height: 0;
+		line-height: 0;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+/***** -----   Initialization   -----*****/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{ margin: 0; padding: 0; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, iframe{ display: block; }
+button{ background-color: transparent;}
+iframe{ border: 0; }
+h1, h2, h3, h4, h5, h6{ font-size: 100%; font-weight: 500; }
+audio, canvas, video{ display: inline-block; *display: inline; *zoom: 1; }
+table{ border-collapse: collapse; border-spacing: 0; }
+address, cite, dfn, em, var, i{ font-style: normal; font-weight: 400; }
+del{ text-decoration: line-through; }
+ul, ol{ list-style: none; }
+a{ text-decoration: none; color: #333; }
+fieldset, img, button, input{ border: 0; }
+button, input, select, textarea{ font-size: 100%; }
+input{ border-radius: 0; }
+body{overflow: hidden; overflow-y: auto; -webkit-text-size-adjust: none; -webkit-font-smoothing: subpixel-antialiased; color: #000;}
+body, button, input, select, textarea{font-size: 100%; font-family: Verdana, Arial, 'microsoft yahei', Helvetica, sans-serif; }
+:focus{ outline: 0; }
+.clearfloat { clear: both; height: 0; line-height: 0; font-size: 1px; }
+.c:before, .c:after { content: ""; display: table; }
+.c:after { clear: both; }
+.c { zoom: 1; }
+/***** -----   Ending Initialization   -----*****/
+
+/***** -----   媒体查询 - 字体设置   -----*****/
+/* 设计稿宽度=640时, 4rem=400px, 1rem=100px, .5rem = 50px, .1rem = 10px 以此类推 */
+
+html{ font-size: 200px;}
+@include scr1(640);

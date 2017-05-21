@@ -1,0 +1,339 @@
+@charset "UTF-8";
+/* CSS Document */
+.clearfix {
+  display: inline-block; }
+  .clearfix:afert {
+    display: block;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    visibility: hidden; }
+
+/***** -----   Initialization   -----*****/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, iframe {
+  display: block; }
+
+button {
+  background-color: transparent; }
+
+iframe {
+  border: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 500; }
+
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+address, cite, dfn, em, var, i {
+  font-style: normal;
+  font-weight: 400; }
+
+del {
+  text-decoration: line-through; }
+
+ul, ol {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: #333; }
+
+fieldset, img, button, input {
+  border: 0; }
+
+button, input, select, textarea {
+  font-size: 100%; }
+
+input {
+  border-radius: 0; }
+
+body {
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  color: #000; }
+
+body, button, input, select, textarea {
+  font-size: 100%;
+  font-family: Verdana, Arial, 'microsoft yahei', Helvetica, sans-serif; }
+
+:focus {
+  outline: 0; }
+
+.clearfloat {
+  clear: both;
+  height: 0;
+  line-height: 0;
+  font-size: 1px; }
+
+.c:before, .c:after {
+  content: "";
+  display: table; }
+
+.c:after {
+  clear: both; }
+
+.c {
+  zoom: 1; }
+
+/***** -----   Ending Initialization   -----*****/
+/***** -----   媒体查询 - 字体设置   -----*****/
+/* 设计稿宽度=640时, 4rem=400px, 1rem=100px, .5rem = 50px, .1rem = 10px 以此类推 */
+html {
+  font-size: 200px; }
+
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: 225px; } }
+@media screen and (max-width: 1366px) {
+  html {
+    font-size: 213.4375px; } }
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 200px; } }
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 187.5px; } }
+@media screen and (max-width: 1120px) {
+  html {
+    font-size: 175px; } }
+@media screen and (max-width: 1080px) {
+  html {
+    font-size: 168.75px; } }
+@media screen and (max-width: 960px) {
+  html {
+    font-size: 150px; } }
+@media screen and (max-width: 880px) {
+  html {
+    font-size: 137.5px; } }
+@media screen and (max-width: 840px) {
+  html {
+    font-size: 131.25px; } }
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 125px; } }
+@media screen and (max-width: 750px) {
+  html {
+    font-size: 117.1875px; } }
+@media screen and (max-width: 720px) {
+  html {
+    font-size: 112.5px; } }
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 100px; } }
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 93.75px; } }
+@media screen and (max-width: 560px) {
+  html {
+    font-size: 87.5px; } }
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 78.125px; } }
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 75px; } }
+@media screen and (max-width: 414px) {
+  html {
+    font-size: 64.6875px; } }
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 62.5px; } }
+@media screen and (max-width: 384px) {
+  html {
+    font-size: 60px; } }
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 58.59375px; } }
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 56.25px; } }
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 50px; } }
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: .15rem; }
+
+.main-wrapper {
+  margin-top: -.04rem;
+  min-height: 100%;
+  width: 100%; }
+.content{
+  min-height: 100%;
+  background: url(../images/bg.jpg) repeat-y center top;
+  background-size: 100% auto;
+}
+
+.dropload-down {
+  height: .7rem; }
+  .dropload-down .more-wrapper {
+    position: relative;
+    margin: 0 auto 0 auto;
+    height: .7rem;
+    width: 100%;
+    line-height: .7rem;
+    font-size: .2rem;
+    text-align: center; }
+    .dropload-down .more-wrapper .icon-more {
+      display: inline-block;
+      width: .15rem;
+      height: .2rem;
+      background: url(../images/icon_arrow.png) no-repeat center center;
+      background-size: 100%; }
+
+.banner-wrapper {
+  top: 0; }
+  .banner-wrapper .link {
+    display: inline-block;
+    width: 100%;
+    height: 100%; }
+
+.main {
+  margin-top: 0;
+  padding-bottom: .7rem;
+  font-size: 0; }
+  .main .banner {
+    top: 0;
+    margin: 0 auto;
+    height: 3.01rem;
+    width: 100%;
+    font-size: 1rem; }
+    .main .banner .swiper-wrapper {
+      z-index: 20;
+      height: 3rem; }
+    .main .banner .swiper-pagination {
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: .05rem;
+      display: flex; }
+      .main .banner .swiper-pagination .swiper-pagination-bullet {
+        flex: 1;
+        margin: 0 .05rem;
+        height: .1rem;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 0; }
+      .main .banner .swiper-pagination .swiper-pagination-bullet-active {
+        background: #afd8ff; }
+  .main .title-wrapper {
+    margin: .2rem auto; }
+    .main .title-wrapper .title {
+      display: inline-block;
+      margin-left: .42rem;
+      padding: .03rem 0 .03rem .1rem;
+      border-left: .01rem solid #0062bf;
+      font-size: .3rem;
+      font-weight: 700;
+      color: #0062bf; }
+  .main .live {
+    margin: 0 .3rem 0 .3rem; }
+
+.detail {
+  position: relative;
+  margin: 0 auto .3rem auto;
+  height: 2.47rem;
+  width: 5.73rem;
+  box-shadow: 0.03rem 0.04rem 0.06rem 0 rgba(0, 0, 0, 0.3); }
+  .detail .icon-live {
+    position: absolute;
+    height: .31rem;
+    width: .74rem;
+    left: 0;
+    top: .2rem;
+    background: url(../images/icon_live.png) no-repeat center center;
+    background-size: 100%; }
+    .detail .icon-live.show {
+      display: block; }
+    .detail .icon-live.notshow {
+      display: none; }
+  .detail .desc {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: .55rem;
+    width: 5.73rem;
+    background: rgba(0, 103, 198, 0.5);
+    line-height: .55rem;
+    color: #fff;
+    font-size: .2rem;
+    box-sizing: border-box; }
+    .detail .desc .title {
+      flex: 1;
+      margin-left: .2rem;
+      vertical-align: top;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .detail .desc .rate {
+      flex: 0 0 1.2rem;
+      width: 1.2rem;
+      margin: 0 .2rem;
+      text-align: right; }
+      .detail .desc .rate .icon-rate {
+        display: inline-block;
+        margin-right: .1rem;
+        width: .2rem;
+        height: .14rem;
+        background: url(../images/icon_eye.png) no-repeat center center;
+        background-size: 100%; }
+    .detail .desc .time {
+      flex: 0 0 1.5rem;
+      width: 1.5rem;
+      margin-right: .2rem; }
+  .detail .link {
+    display: inline-block;
+    width: 100%;
+    height: 100%; }
+
+.care {
+  position: relative;
+  margin: 2.5rem .6rem 0 .6rem;
+  padding-top: .6rem;
+  width: 5.2rem;
+  min-height: 2rem;
+  background: #fff;
+  border-radius: .15rem;
+  font-size: 0;
+  text-align: center; }
+  .care .close {
+    position: absolute;
+    right: .15rem;
+    top: .15rem;
+    width: .27rem;
+    height: .26rem;
+    background: url(../images/care_close.png) no-repeat center center;
+    background-size: 100%; }
+  .care .desc {
+    margin: 0 .3rem;
+    font-size: .27rem;
+    color: #00436b; }
+  .care .btn {
+    display: block;
+    margin: .43rem auto 0 auto;
+    width: 1.95rem;
+    height: .71rem;
+    background: url(../images/care_btn.png) no-repeat center center;
+    background-size: 100%; }
+
+/*# sourceMappingURL=base.css.map */
