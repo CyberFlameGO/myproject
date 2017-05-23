@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>while</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var time = 5000;
+
+		function pool(check, callback){
+			if(check){
+				return callback;
+			}else{
+				console.log('时间：'+time);
+				setTimeout(function(){
+					return setIntervalPool();
+				}, setTime());
+			}
+		}
+
+		function setIntervalPool(){
+			return pool(getStatus(), sussace);
+		}
+
+		function getStatus() {
+			console.log('no ok');
+			return false;
+		}
+
+		function sussace() {
+			console.log('ok');
+		}
+
+		function setTime(){
+			time = time/2
+			if(time < 1000) {
+				time = 1000;
+			}
+			return time;
+		}
+
+		pool(getStatus(), sussace);
+	</script>
+</body>
+</html>
