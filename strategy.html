@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>strategy</title>
+</head>
+<body>
+  <div id="div" style="position: absolute; width: 50px; height: 50px; background: red;"></div>
+  <script type="text/javascript">
+    var tween = {
+      linear: function( t, b, c, d ){
+        return c*t/d + b;
+      },
+      easeIn: function( t, b, c, d ){
+        return c * ( t /= d ) * t + b;
+      },
+      strongEaseIn: function(t, b, c, d){
+        return c * ( t /= d ) * t * t * t * t + b;
+      },
+      strongEaseOut: function(t, b, c, d){
+        return c * ( ( t = t / d - 1) * t * t * t * t + 1 ) + b;
+      },
+      sineaseIn: function( t, b, c, d ){
+        return c * ( t /= d) * t * t + b;
+      },
+      sineaseOut: function(t,b,c,d){
+        return c * ( ( t = t / d - 1) * t * t + 1 ) + b;
+      }
+    };
+
+    var Animate = function( dom ){
+      this.dom = dom; // 进行运动的dom 节点
+      this.startTime = 0; // 动画开始时间
+      this.startPos = 0; // 动画开始时，dom 节点的位置，即dom 的初始位置
+      this.endPos = 0; // 动画结束时，dom 节点的位置，即dom 的目标位置
+      this.propertyName = null; // dom 节点需要被改变的css 属性名
+      this.easing = null; // 缓动算法
+      this.duration = null; // 动画持续时间
+      this.start = function(propertyName, endPos, duration, easing) {
+        //propertyName：要改变的CSS 属性名，比如'left'、'top'，分别表示左右移动和上下移动
+        //endPos： 小球运动的目标位置。
+        //duration： 动画持续时间。
+        //easing： 缓动算法。
+        this.startTime = +new Date; // 动画启动时间
+        this.startPos = this.dom.getBoundingClientRect()[ propertyName ]; // dom 节点初始位置
+        this.propertyName = propertyName; // dom 节点需要被改变的CSS 属性名
+        this.endPos = endPos; // dom 节点目标位置
+        this.duration = duration; // 动画持续事件
+        this.easing = tween[ easing ]; // 缓动算法
+        var self = this;
+        var timeId = setInterval(function(){ // 启动定时器，开始执行动画
+        if ( self.step() === false ){ // 如果动画已结束，则清除定时器
+          clearInterval( timeId );
+        }
+        }, 19 );
+      };
+
+      this.step = function() {
+        var t = +new Date; // 取得当前时间
+        if ( t >= this.startTime + this.duration ){ // (1)
+          this.update( this.endPos ); // 更新小球的CSS 属性值
+          return false;
+        }
+        var pos = this.easing( t - this.startTime, this.startPos, this.endPos - this.startPos, this.duration );
+        // pos 为小球当前位置
+        this.update( pos ); // 更新小球的CSS 属性值
+      };
+
+      this.update = function(pos){
+        this.dom.style[ this.propertyName ] = pos + 'px';
+      }
+    };
+
+    var div = document.getElementById( 'div' );
+   /* div.style.width = '50px';
+    div.style.height = '50px';
+    div.style.background = 'red';*/
+    var animate = new Animate( div );
+    animate.start( 'left', 500, 1000, 'strongEaseOut' );
+
+  </script>
+
+  <!-- <script type="text/javascript">
+    
+    var performanceS = function(){
+      this.calculate = function(salary){
+        return salary * 4;
+      }
+    };
+    
+    var performanceA = function(){
+      this.calculate = function(salary){
+        return salary * 3;
+      }
+    };
+  
+    var performanceB = function(){
+      this.calculate = function(salary){
+        return salary * 2;
+      }
+    };
+  
+    var Bonus = function(){
+      this.salary = null; // 原始工资
+      this.strategy = null; // 绩效等级对应的策略对象
+    };
+    Bonus.prototype.setSalary = function( salary ){
+      this.salary = salary; // 设置员工的原始工资
+    };
+    Bonus.prototype.setStrategy = function( strategy ){
+      this.strategy = strategy; // 设置员工绩效等级对应的策略对象
+    };
+    Bonus.prototype.getBonus = function(){ // 取得奖金数额
+      return this.strategy.calculate( this.salary ); // 把计算奖金的操作委托给对应的策略对象
+    };
+  
+    var bonus = new Bonus();
+    bonus.setSalary( 10000 );
+    bonus.setStrategy( new performanceS() ); // 设置策略对象
+  
+    console.log( bonus.getBonus() );
+  </script> -->
+</body>
+</html>

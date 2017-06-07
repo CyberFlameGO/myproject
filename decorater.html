@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>装饰者模式 包装模式</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var plane = {
+      fire: function(){
+        console.log( '发射普通子弹' );
+      }
+    }
+    var missileDecorator = function(){
+      console.log( '发射导弹' );
+    }
+    var atomDecorator = function(){
+      console.log( '发射原子弹' );
+    }
+    var fire1 = plane.fire;
+    plane.fire = function(){
+      fire1();
+      missileDecorator();
+    }
+    var fire2 = plane.fire;
+    plane.fire = function(){
+      fire2();
+      atomDecorator();
+    }
+    plane.fire();
+
+
+    var before = function( fn, beforefn ){
+      return function(){
+      beforefn.apply( this, arguments );
+        return fn.apply( this, arguments );
+      }
+    }
+    var a = before(
+      function(){alert (3)},
+      function(){alert (2)}
+    );
+    a = before( a, function(){alert (1);} );
+    a();
+
+    
+  </script>
+</body>
+</html>

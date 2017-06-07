@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    body {
+        background: gray;
+    }
+    
+    p {
+        margin-bottom: 0;
+        width: 100%;
+        line-height: 1.4;
+        font-size: 24px;
+        font-weight: 300;
+        vertical-align: middle;
+        background: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(255, 255, 255, 0.6)), color-stop(0.4, rgba(255, 255, 255, 0.6)), color-stop(0.5, white), color-stop(0.6, rgba(255, 255, 255, 0.6)), color-stop(1, rgba(255, 255, 255, 0.6)));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-animation: slidetounlock 5s infinite linear;
+        /* background-position:-200px 0; */
+    }
+    
+    @-webkit-keyframes slidetounlock {
+        0% {
+            background-position: -400px 0;
+        }
+        100% {
+            background-position: 100% 0;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <p> 闭包是一种特殊的对象。它由两部分构成：函数，以及创建该函数的环境。</p>
+    <div>
+        <h1>this 的指向大致可以分为以下 4 种</h1>
+        <ul>
+            <li>作为对象的方法调用。</li>
+            <li>作为普通函数调用。</li>
+            <li>构造器调用。</li>
+            <li>Function.prototype.call 或 Function.prototype.apply 调用</li>
+        </ul>
+         </p>
+    </div>
+    <div>
+        <h1>享元模式</h1>
+        <div>
+            内部状态储存于对象内部。  
+            内部状态可以被一些对象共享。  
+            内部状态独立于具体的场景，通常不会改变。  
+            外部状态取决于具体的场景，并根据场景而变化，外部状态不能被共享。
+        </div>
+    </div>
+    <p>js-design-mark</p>
+</body>
+
+</html>
